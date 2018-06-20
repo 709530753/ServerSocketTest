@@ -11,22 +11,25 @@
 @implementation Person
 
 
-//或者精确点，但需要根据运营商更新
-- (BOOL)wl_isMobileNumberClassification {
-    /**
-     * 手机号码
-     NSString *emailRegex = @"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\\\.[A-Za-z]{2,4}";
+- (BOOL)isValidPasswordkbknbnltmlobmntmymbty {
+    //以字母开头，只能包含“字母”，“数字”，“下划线”，长度6~18
+    NSString *regex = @"^([a-zA-Z]|[a-zA-Z0-9_]|[0-9]){6,18}$";
+    NSString *emailRegex = @"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\\\.[A-Za-z]{2,4}";
 
-     * 移动：134[0-8],135,136,137,138,139,150,151,157,158,159,182,187,188,1705
-     * 联通：130,131,132,152,155,156,185,186,1709
-     * 电信：133,1349,153,180,189,1700
-     */
+    return [self isValidateByRegex:regex];
+}
+
+- (BOOL)isValidateByRegex:(NSString *)regex {
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
+    NSString *emailRegex = @"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\\\.[A-Za-z]{2,4}";
+
+    return [pre evaluateWithObject:self];
+}
+
+
+//或者精确点，但需要根据运营商更新
+- (BOOL)wl_isMobileNumberClassificationeklbrknbrmbtrmbobm {
     
-    /**
-     10         * 中国移动：China Mobile
-     11         * 134[0-8],135,136,137,138,139,150,151,157,158,159,182,187,188，1705
-     12
-     */
     NSString * CM = @"^1(34[0-8]|(3[5-9]|5[017-9]|8[278])\\\\d|705)\\\\d{7}$";
     /**
      15         * 中国联通：China Unicom
@@ -34,13 +37,7 @@
      17
      */
     NSString * CU = @"^1((3[0-2]|5[256]|8[56])\\\\d|709)\\\\d{7}$";
-    /**
-     20         * 中国电信：China Telecom
-     21         * 133,1349,153,180,189,1700
-     22
-     NSString *emailRegex = @"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\\\.[A-Za-z]{2,4}";
-
-     */
+    
     NSString * CT = @"^1((33|53|8[09])\\\\d|349|700)\\\\d{7}$";
     /**
      25         * 大陆地区固话及小灵通
@@ -61,7 +58,7 @@
 }
 
 - (BOOL)isValidUrlsfsfs{
-    NSString * regex = @"\\\\b((ftp|http|https?):\\\\/\\\\/[-\\\\w]+(\\\\.\\\\w[-\\\\w]*)+|(?i:[a-z0-9](?:[-a-z0-9]*[a-z0-9])?\\\\.)+(?-i:com\\\\b|edu\\\\b|biz\\\\b|gov\\\\b|in(?:t|fo)\\\\b|mil\\\\b|net\\\\b|org\\\\b|[a-z][a-z]\\\\b))(:\\\\d+)?(/[^.!,?;\\";
+    NSString * regex = @"\\\\b((ftp|http|https?):\\\\/\\\\/[-\\\\w]+(\\\\.\\\\w[-\\\\w]*)+|(?i:[a-z0-9](?:[-a-z0-9]*[a-z0-9])?\\\\.)+(?-i:com\\\\b|edu\\\\b|biz\\\\b|gov\\\\b|in(?:t|fo)\\\\b|mil\\\\b|net\\\\b|org\\\\b|[a-z][a-z]\\\\b))(:\\\\d+)?(/[^.!,?;\\krengoitriorjtihojrtohjytionjytjnopyt";
     return [self isValidateByRegex:regex];
 }
 
@@ -86,14 +83,13 @@
 {
     NSString *hanzi = containChinese ? @"\\u4e00-\\u9fa5" : @"";
     NSString *emailRegex = @"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\\\.[A-Za-z]{2,4}";
-
+    
     NSString *first = firstCannotBeDigtal ? @"^[a-zA-Z_]" : @"";
     NSString *lengthRegex = [NSString stringWithFormat:@"(?=^.{%@,%@}$)", @(minLenth), @(maxLenth)];
     NSString *digtalRegex = containDigtal ? @"(?=(.*\\\\d.*){1})" : @"";
     NSString *letterRegex = containLetter ? @"(?=(.*[a-zA-Z].*){1})" : @"";
     NSString *characterRegex = [NSString stringWithFormat:@"(?:%@[%@A-Za-z0-9%@]+)", first, hanzi, containOtherCharacter ? containOtherCharacter : @""];
-    NSString *emailRegex = @"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\\\.[A-Za-z]{2,4}";
-
+    
     NSString *regex = [NSString stringWithFormat:@"%@%@%@%@", lengthRegex, digtalRegex, letterRegex, characterRegex];
     return [self isValidateByRegex:regex];
 }
@@ -107,31 +103,15 @@
 - (BOOL)isValidUrl {
     NSString * regex = @"\\\\b((ftp|http|https?):\\\\/\\\\/[-\\\\w]+(\\\\.\\\\w[-\\\\w]*)+|(?i:[a-z0-9](?:[-a-z0-9]*[a-z0-9])?\\\\.)+(?-i:com\\\\b|edu\\\\b|biz\\\\b|gov\\\\b|in(?:t|fo)\\\\b|mil\\\\b|net\\\\b|org\\\\b|[a-z][a-z]\\\\b))(:\\\\d+)?(/[^.!,?;\\ionvrbnotrinoprenionribrijkngrgtgoirehopghpojp[rjgoprhj59j";
     NSString *emailRegex = @"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\\\.[A-Za-z]{2,4}";
-
+    
     return [self isValidateByRegex:regex];
 }
 
 - (BOOL)simpleVerifyIdentityCardNum {
     NSString *regex2 = @"^(\\\\d{14}|\\\\d{17})(\\\\d|[xX])$";
     NSString *emailRegex = @"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\\\.[A-Za-z]{2,4}";
-
+    
     return [self isValidateByRegex:regex2];
 }
-
-- (BOOL)isValidPassword {
-    //以字母开头，只能包含“字母”，“数字”，“下划线”，长度6~18
-    NSString *regex = @"^([a-zA-Z]|[a-zA-Z0-9_]|[0-9]){6,18}$";
-    NSString *emailRegex = @"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\\\.[A-Za-z]{2,4}";
-
-    return [self isValidateByRegex:regex];
-}
-
-- (BOOL)isValidateByRegex:(NSString *)regex {
-    NSPredicate *pre = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
-    NSString *emailRegex = @"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\\\.[A-Za-z]{2,4}";
-
-    return [pre evaluateWithObject:self];
-}
-
 
 @end
