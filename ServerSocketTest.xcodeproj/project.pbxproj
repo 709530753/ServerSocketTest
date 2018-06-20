@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5256A9BA20DA92D7008AC370 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 5256A9B820DA92D6008AC370 /* Person.m */; };
 		52BEACB820C02F660089CD05 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BEACB720C02F660089CD05 /* main.m */; };
 		52BEACC020C0304B0089CD05 /* LKLSocketService.m in Sources */ = {isa = PBXBuildFile; fileRef = 52BEACBF20C0304B0089CD05 /* LKLSocketService.m */; };
 		52BEACC620C033640089CD05 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52BEACC220C030EA0089CD05 /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -29,6 +30,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5256A9B820DA92D6008AC370 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		5256A9B920DA92D7008AC370 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		52BEACB420C02F660089CD05 /* ServerSocketTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ServerSocketTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52BEACB720C02F660089CD05 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		52BEACBE20C0304B0089CD05 /* LKLSocketService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LKLSocketService.h; sourceTree = "<group>"; };
@@ -76,6 +79,8 @@
 		52BEACB620C02F660089CD05 /* ServerSocketTest */ = {
 			isa = PBXGroup;
 			children = (
+				5256A9B920DA92D7008AC370 /* Person.h */,
+				5256A9B820DA92D6008AC370 /* Person.m */,
 				52BEACB720C02F660089CD05 /* main.m */,
 				52BEACBE20C0304B0089CD05 /* LKLSocketService.h */,
 				52BEACBF20C0304B0089CD05 /* LKLSocketService.m */,
@@ -150,6 +155,7 @@
 			files = (
 				52BEACCC20C0339F0089CD05 /* GCDAsyncUdpSocket.m in Sources */,
 				52BEACCD20C0339F0089CD05 /* GCDAsyncUdpSocket.h in Sources */,
+				5256A9BA20DA92D7008AC370 /* Person.m in Sources */,
 				52BEACCE20C0339F0089CD05 /* GCDAsyncSocket.h in Sources */,
 				52BEACCF20C0339F0089CD05 /* GCDAsyncSocket.m in Sources */,
 				52BEACC020C0304B0089CD05 /* LKLSocketService.m in Sources */,
